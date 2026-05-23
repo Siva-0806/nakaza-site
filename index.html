@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Nakaza Automations LLP — Engineering Tomorrow</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</style>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+ 
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">NAKAZA <span>AUTOMATIONS</span></div>
+  <div class="loader-bar-wrap"><div class="loader-bar" id="lbar"></div></div>
+  <div class="loader-pct" id="lpct">0%</div>
+</div>
+ 
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="logo">
+    <img src="images/logo.png" alt="Nakaza Logo" style="width:40px;height:40px;object-fit:contain;"/>
+    <span class="logo-word">NAKAZA <em>AUTOMATIONS</em></span>
+  </a>
+  <ul id="navlinks">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#founder">Founder</a></li>
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+ 
+<!-- ════════ HERO ════════ -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-scan"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="ping"></span>
+      <span>LLP &nbsp;·&nbsp; ACL-4477 &nbsp;·&nbsp; Tamil Nadu, India</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="word"><span class="char">E</span><span class="char">N</span><span class="char">G</span><span class="char">I</span><span class="char">N</span><span class="char">E</span><span class="char">E</span><span class="char">R</span><span class="char">I</span><span class="char">N</span><span class="char">G</span></span><br>
+      <span class="word stroke"><span class="char">T</span><span class="char">O</span><span class="char">M</span><span class="char">O</span><span class="char">R</span><span class="char">R</span><span class="char">O</span><span class="char">W</span></span><br>
+      <span class="word"><span class="char">T</span><span class="char">O</span><span class="char">D</span><span class="char">A</span><span class="char">Y</span><span class="char">.</span></span>
+    </h1>
+    <p class="hero-sub">Nakaza Automations LLP, where robotics, artificial intelligence, IoT and human ingenuity converge to build the future, one breakthrough at a time.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-gold">Explore Our Work <span class="btn-arrow">→</span></a>
+      <a href="#contact" class="btn btn-outline">Start a Project <span class="btn-arrow">→</span></a>
+    </div>
+  </div>
+  <div class="hero-corner-stats" id="hstats">
+    <div class="hstat"><div class="hstat-num">60+</div><div class="hstat-lbl">IPR Patents</div></div>
+    <div class="hstat"><div class="hstat-num">80+</div><div class="hstat-lbl">Research Papers</div></div>
+    <div class="hstat"><div class="hstat-num">7</div><div class="hstat-lbl">Hackathon Wins</div></div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-track"></div>Scroll to explore</div>
+</section>
+ 
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner" id="ticker"></div>
+</div>
+ 
+<!-- ════════ ABOUT ════════ -->
+<section id="about" class="sec">
+  <div class="sec-inner">
+    <div id="about-canvas-wrap">
+      <div id="about-canvas" style="position:relative;">
+        <canvas id="morph-canvas"></canvas>
+        <div class="about-canvas-label">LIVE · Innovation Engine Active</div>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="tag">About the Company</div>
+      <h2 class="sh">WHERE IDEAS <span class="gold">BECOME MACHINES</span></h2>
+      <div class="rule"></div>
+      <p>Nakaza Automations LLP (ACL-4477) is a trailblazing technology firm founded by Mr. N. Ramachandran. We stand at the intersection of robotics, embedded systems, artificial intelligence, and IoT, transforming ambitious visions into award-winning, real-world innovations.</p>
+      <p>From consecutive victories at the Smart India Hackathon with 7 winning teams to collaborations with Qatar University, BBW University (Germany), and BITS Pilani Dubai, we bring world-class expertise to every institution and individual we serve.</p>
+      <div class="pillars">
+        <div class="pillar"><div class="pillar-icon"><img src="images/patent.png" alt="Patents"/></div><h4>60+ IPR Patents</h4><p>Full lifecycle IP management with transparent pricing and lifetime support.</p></div>
+        <div class="pillar"><div class="pillar-icon" style="font-size:4.5rem;">📰</div><h4>80+ Research Papers</h4><p>Scopus-indexed publications spanning robotics, AI, IoT, and embedded systems.</p></div>
+        <div class="pillar"><div class="pillar-icon"><img src="images/Global recognition.png" alt="Global Recognition"/></div><h4>Global Recognition</h4><p>Accolades from IIT Madras, Caterpillar, Bosch, MIT, NIT Trichy and beyond.</p></div>
+        <div class="pillar"><div class="pillar-icon"><img src="images/projects_built.png" alt="Projects Built"/></div><h4>70+ Projects Built</h4><p>Fabricated for VIT, BITS Pilani and institutions across India and abroad.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ════════ FOUNDER ════════ -->
+<section id="founder" class="sec">
+  <div class="sec-inner" style="max-width:none;">
+    <div style="margin-bottom:52px;">
+      <div class="tag">Leadership</div>
+      <h2 class="sh">THE <span class="gold">VISIONARY</span> BEHIND IT ALL</h2>
+      <div class="rule"></div>
+    </div>
+  </div>
+  <div class="founder-wrap">
+    <div class="fcard" id="fcard">
+      <div class="fcard-header">
+        <div class="f-avatar-img">
+          <img src="images/Founder image.png" alt="Mr. N. Ramachandran" class="f-avatar-photo"/>
+        </div>
+        <div class="f-name">MR. N. RAMACHANDRAN</div>
+        <div class="f-role">CEO &amp; Founder · Tech Evangelist</div>
+        <div class="f-contacts">
+          <div class="f-contact-row"><span class="f-contact-icon"><img src="images/linkedin.png" alt="LinkedIn"/></span><a href="https://www.linkedin.com/in/ramachandran-natarajan-bb6456135/" target="_blank">linkedin.com/in/ramachandran-natarajan</a></div>
+          <div class="f-contact-row"><span class="f-contact-icon"><img src="images/insta.png" alt="Instagram"/></span><a href="https://www.instagram.com/" target="_blank">Instagram</a></div>
+        </div>
+      </div>
+      <div class="fcard-body">
+        <div class="f-chips">
+          <span class="fchip">SIH Winner ×4</span>
+          <span class="fchip">80+ Papers</span>
+          <span class="fchip">60+ Patents</span>
+          <span class="fchip">IIT Madras</span>
+          <span class="fchip">Qatar University</span>
+          <span class="fchip">Caterpillar &amp; Bosch</span>
+          <span class="fchip">Germany</span>
+          <span class="fchip">BITS Pilani</span>
+        </div>
+        <a href="founder.html" class="explore-link">
+          Explore Full Profile
+          <span class="explore-arr">→</span>
+        </a>
+      </div>
+    </div>
+    <div class="founder-info">
+      <h2 class="sh">Mentor. Researcher.<br><span class="gold">Innovator.</span></h2>
+      <p>Mr. N. Ramachandran is not merely a founder, he is a movement. As a technology evangelist, he has guided hundreds of students to national and international victories, turning classrooms into launchpads for the next generation of engineers and entrepreneurs.</p>
+      <p>Under his visionary leadership, Nakaza Automations has secured 60+ IPR patents, published 80+ research papers in Scopus-indexed journals, and fabricated 70+ academic projects for premier institutions including VIT and BITS Pilani. His collaborations span three continents, cementing his status as one of India's most impactful technology educators.</p>
+      <div class="ach-list">
+        <div class="ach-item"><div class="ach-text"><h5>Smart India Hackathon, 4x Champion</h5><p>7 winning teams across four consecutive editions, supported by MHRD-AICTE.</p></div></div>
+        <div class="ach-item"><div class="ach-text"><h5>Industry Giants</h5><p>Accolades from Caterpillar, Bosch, L&amp;T Techgium, KPIT Sparkle, MIT.</p></div></div>
+        <div class="ach-item"><div class="ach-text"><h5>Government Backed</h5><p>Ministry of AYUSH, AICTE YUKTI, TNSTC and international funding agencies.</p></div></div>
+        <div class="ach-item"><div class="ach-text"><h5>International Research</h5><p>Research guidance at Qatar University, BBW Germany and BITS Pilani Dubai Campus.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ════════ STATS BAND ════════ -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat-cell"><div class="stat-num" data-target="60" data-suffix="+">0</div><div class="stat-label">IPR Patents Secured</div></div>
+    <div class="stat-cell"><div class="stat-num" data-target="80" data-suffix="+">0</div><div class="stat-label">Research Papers Published</div></div>
+    <div class="stat-cell"><div class="stat-num" data-target="70" data-suffix="+">0</div><div class="stat-label">Academic Projects Fabricated</div></div>
+    <div class="stat-cell"><div class="stat-num" data-target="7" data-suffix="">0</div><div class="stat-label">National Hackathon Wins</div></div>
+  </div>
+</div>
+ 
+<!-- ════════ VISION / MISSION ════════ -->
+<section id="vision" class="sec">
+  <div class="sec-inner">
+    <div class="vision-bg-word">NAKAZA</div>
+    <div class="tag">Our North Star</div>
+    <h2 class="sh">VISION & <span class="gold">MISSION</span></h2>
+    <div class="rule"></div>
+    <div class="vm-grid">
+      <div class="vm-card">
+        <div class="vm-n">V</div>
+        <div class="vm-icon"><img src="images/vision.png" alt="Vision"/></div>
+        <h3>VISION</h3>
+        <p>To support every individual to think on their own, reciprocate their own ideas, and win life with high standards. We envision a world where every aspiring technologist, regardless of background or resources, has the tools, guidance, and confidence to innovate boldly and build a meaningful future.</p>
+      </div>
+      <div class="vm-card">
+        <div class="vm-n">M</div>
+        <div class="vm-icon"><img src="images/Mission.png" alt="Mission"/></div>
+        <h3>MISSION</h3>
+        <p>Our passion is to make learning genuinely transformative, letting people discover what they're truly capable of, and showing them how to envision it in new, exciting ways that bring harmony and confidence to their minds. We create breakthroughs, one student, one project, one patent at a time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ════════ SERVICES ════════ -->
+<section id="services" class="sec">
+  <canvas class="services-bg-canvas" id="svc-canvas"></canvas>
+  <div class="sec-inner">
+    <div class="tag">What We Do</div>
+    <h2 class="sh">OUR <span class="gold">SERVICES</span></h2>
+    <div class="rule"></div>
+    <div class="svc-grid">
+      <div class="svc-card"><div class="svc-num">01 ——</div><span class="svc-icon"><img src="images/RA.png" alt="Robotics"/></span><h3>ROBOTICS &amp; AUTOMATION</h3><p>Fabrication of industry and academic projects for schools, polytechnics, undergraduates, postgraduates and research scholars.</p><div class="svc-tags"><span class="stag">Industry Projects</span><span class="stag">Academic Projects</span><span class="stag">Custom Fabrication</span></div></div>
+      <div class="svc-card"><div class="svc-num">02 ——</div><span class="svc-icon"><img src="images/hackathon training.png" alt="Hackathon"/></span><h3>HACKATHON TRAINING</h3><p>Exemplary coaching to participate, present and win at National and International Tech and Hack contests including SIH, KPIT Sparkle, L&amp;T Techgium.</p><div class="svc-tags"><span class="stag">SIH Strategy</span><span class="stag">Presentation</span><span class="stag">Problem Solving</span></div></div>
+      <div class="svc-card"><div class="svc-num">03 ——</div><span class="svc-icon"><img src="images/coe.png" alt="CoE"/></span><h3>CENTRE OF EXCELLENCE</h3><p>Establish fully operational Centres of Excellence in schools and educational institutes to foster sustained innovation culture.</p><div class="svc-tags"><span class="stag">Lab Design</span><span class="stag">Curriculum</span><span class="stag">Mentorship</span></div></div>
+      <div class="svc-card"><div class="svc-num">04 ——</div><span class="svc-icon"><img src="images/patent.png" alt="Patent"/></span><h3>IPR &amp; PATENT FILING</h3><p>Transparent, competitive pricing with tailored expert guidance and lifetime support for patent filing, publishing and IP commercialisation.</p><div class="svc-tags"><span class="stag">60+ Patents</span><span class="stag">Scopus Papers</span><span class="stag">IP Strategy</span></div></div>
+      <div class="svc-card"><div class="svc-num">05 ——</div><span class="svc-icon"><img src="images/workshop.png" alt="Workshop"/></span><h3>WORKSHOPS &amp; LECTURES</h3><p>Impactful guest lectures and motivational sessions on IoT, Industry 4.0, Robotics, Rocket Science, and all emerging technologies.</p><div class="svc-tags"><span class="stag">IoT</span><span class="stag">Industry 4.0</span><span class="stag">Rocket Science</span></div></div>
+      <div class="svc-card"><div class="svc-num">06 ——</div><span class="svc-icon"><img src="images/career training.png" alt="Career"/></span><h3>CAREER TRAINING</h3><p>Professional training to crack interviews, resume prep, aptitude and language, LinkedIn optimisation, and hands-on Arduino, Raspberry Pi, CAD training.</p><div class="svc-tags"><span class="stag">Resume Prep</span><span class="stag">Arduino</span><span class="stag">Raspberry Pi</span></div></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ════════ PROJECTS ════════ -->
+<section id="projects" class="sec">
+  <div class="sec-inner">
+    <div class="tag">Portfolio</div>
+    <h2 class="sh">KEY <span class="gold">PROJECTS BUILT</span></h2>
+    <div class="rule"></div>
+    <div class="proj-filter">
+      <button class="pf on" onclick="fp('all',this)">All</button>
+      <button class="pf" onclick="fp('robotics',this)">Robotics</button>
+      <button class="pf" onclick="fp('ai',this)">AI / ML</button>
+      <button class="pf" onclick="fp('iot',this)">IoT</button>
+      <button class="pf" onclick="fp('auto',this)">Automation</button>
+      <button class="pf" onclick="fp('drone',this)">Drone &amp; AR/VR</button>
+    </div>
+    <div class="proj-grid" id="pgrid"></div>
+  </div>
+</section>
+ 
+<!-- ════════ CONTACT ════════ -->
+<section id="contact" class="sec">
+  <div class="contact-bg-word">CONNECT</div>
+  <div class="contact-wrap">
+    <div class="contact-left">
+      <div class="tag">Let's Collaborate</div>
+      <h3>LET'S BUILD SOMETHING<br><span style="background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">EXTRAORDINARY.</span></h3>
+      <p>Whether you're a student with a dream project, a researcher seeking collaboration, or an institution looking to establish a Centre of Excellence, we'd love to hear from you.</p>
+      <div class="c-rows">
+        <div class="c-row"><div class="c-ico"><img src="images/phone.png" alt="Phone"/></div><div><div class="c-row-label">Phone</div><a href="tel:+918344396961">+91 83443 96961 &nbsp;·&nbsp; +91 63790 57889 &nbsp;·&nbsp; +91 81483 41305</a></div></div>
+        <div class="c-row"><div class="c-ico"><img src="images/email.png" alt="Email"/></div><div><div class="c-row-label">Email</div><a href="mailto:nakazaautomations@gmail.com">nakazaautomations@gmail.com</a></div></div>
+        <div class="c-row"><div class="c-ico"><img src="images/linkedin.png" alt="LinkedIn"/></div><div><div class="c-row-label">LinkedIn</div><a href="https://www.linkedin.com/in/ramachandran-natarajan-bb6456135/" target="_blank">linkedin.com/in/ramachandran-natarajan</a></div></div>
+        <div class="c-row"><div class="c-ico"><img src="images/insta.png" alt="Instagram"/></div><div><div class="c-row-label">Instagram</div><a href="https://www.instagram.com/" target="_blank">Instagram</a></div></div>
+      </div>
+    </div>
+    <div class="form-box">
+      <div class="frow">
+        <div class="fg"><label>Full Name</label><input type="text" id="fn" placeholder="Your full name"/></div>
+        <div class="fg"><label>Email Address</label><input type="email" id="fe" placeholder="you@email.com"/></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label>Phone Number</label><input type="tel" id="fp2" placeholder="+91 XXXXX XXXXX"/></div>
+        <div class="fg"><label>Service Required</label>
+          <select id="fs">
+            <option value="">Select a service...</option>
+            <option>Robotics &amp; Automation Project</option>
+            <option>Hackathon / Contest Training</option>
+            <option>Centre of Excellence Setup</option>
+            <option>IPR &amp; Patent Filing</option>
+            <option>Workshop / Guest Lecture</option>
+            <option>Career Training</option>
+            <option>Research Collaboration</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label>Organization / Institution</label><input type="text" id="fo" placeholder="Your college or organization"/></div>
+      <div class="fg"><label>Message</label><textarea id="fm" placeholder="Describe your project, requirements or any questions you have..."></textarea></div>
+      <button class="send" id="sbtn" onclick="doSend()">SEND MESSAGE</button>
+      <div class="f-msg" id="fmsg"></div>
+    </div>
+  </div>
+</section>
+ 
+<footer>
+  <div class="foot">
+    <span class="foot-copy">© 2025 NAKAZA AUTOMATIONS LLP · ACL-4477 · ALL RIGHTS RESERVED</span>
+    <div class="foot-links">
+      <a href="https://nakaza-automations.vercel.app/" target="_blank">WEBSITE</a>
+      <a href="https://ramachandran-portfolio.vercel.app/" target="_blank">PORTFOLIO</a>
+      <a href="mailto:nakazaautomations@gmail.com">EMAIL</a>
+      <a href="tel:+918344396961">CALL</a>
+    </div>
+  </div>
+</footer>
+<script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+emailjs.init("YOUR_PUBLIC_KEY");
+</script>
+</body>
+</html>
+ 
