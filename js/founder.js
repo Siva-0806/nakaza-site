@@ -124,27 +124,99 @@ function fp(f, btn) {
 }
 fp('all', document.querySelector('.pf.on'));
 
+/* ═══ EMAILJS INIT ═══ */
+(function(){
+  if(typeof emailjs !== 'undefined') emailjs.init('r5myOo9q7ksQUpunX');
+  else window.addEventListener('load', () => emailjs.init('r5myOo9q7ksQUpunX'));
+})();
+
+/* ═══ NOTIFICATION TOAST ═══ */
+function showToast(message, type){
+  const existing = document.getElementById('nakaza-toast');
+  if(existing) existing.remove();
+  const toast = document.createElement('div');
+  toast.id = 'nakaza-toast';
+  toast.textContent = message;
+  Object.assign(toast.style, {
+    position:'fixed', top:'24px', right:'24px', zIndex:'99999',
+    padding:'16px 24px', borderRadius:'8px',
+    fontFamily:"'JetBrains Mono',monospace", fontSize:'.75rem',
+    letterSpacing:'.06em', fontWeight:'500',
+    background: type==='ok' ? 'rgba(0,212,170,.12)' : 'rgba(232,164,0,.12)',
+    border: type==='ok' ? '1px solid rgba(0,212,170,.35)' : '1px solid rgba(232,164,0,.35)',
+    color: type==='ok' ? '#00D4AA' : '#E8A400',
+    backdropFilter:'blur(20px)',
+    boxShadow:'0 8px 32px rgba(0,0,0,.4)',
+    opacity:'0', transform:'translateY(-12px)',
+    transition:'opacity .4s ease, transform .4s ease',
+    maxWidth:'320px'
+  });
+  document.body.appendChild(toast);
+  requestAnimationFrame(() => {
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateY(0)';
+  });
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(-12px)';
+    setTimeout(() => toast.remove(), 400);
+  }, 4000);
+}
+
 /* ═══ CONTACT FORM ═══ */
 function doSend() {
-  const fn=document.getElementById('fn').value.trim();
-  const fe=document.getElementById('fe').value.trim();
-  const fp2=document.getElementById('fp2').value.trim();
-  const fs=document.getElementById('fs').value;
-  const fo=document.getElementById('fo').value.trim();
-  const fm=document.getElementById('fm').value.trim();
-  const msg=document.getElementById('fmsg');
-  const btn=document.getElementById('sbtn');
-  if (!fn||!fe||!fm) { msg.className='fmsg er'; msg.textContent='⚠ Please fill in name, email and message.'; return; }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fe)) { msg.className='fmsg er'; msg.textContent='⚠ Please enter a valid email.'; return; }
-  btn.disabled=true; btn.textContent='OPENING EMAIL…';
-  const sub = encodeURIComponent(`Nakaza Automations — ${fs||'General Enquiry'} — ${fn}`);
-  const body = encodeURIComponent(`Name: ${fn}\nEmail: ${fe}\nPhone: ${fp2}\nOrg: ${fo}\nEnquiry: ${fs}\n\nMessage:\n${fm}`);
-  window.location.href = `mailto:nakazaautomations@gmail.com?subject=${sub}&body=${body}`;
-  setTimeout(() => {
-    msg.className='fmsg ok';
-    msg.textContent='✓ Email client opened. Hit Send — we reply within 24 hours!';
-    btn.disabled=false; btn.textContent='SEND MESSAGE';
-  }, 1600);
+  const fn  = document.getElementById('fn').value.trim();
+  const fe  = document.getElementById('fe').value.trim();
+  const fp2 = document.getElementById('fp2').value.trim();
+  const fs  = document.getElementById('fs').value;
+  const fo  = document.getElementById('fo').value.trim();
+  const fm  = document.getElementById('fm').value.trim();
+  const msg = document.getElementById('fmsg');
+  const btn = document.getElementById('sbtn');
+
+  if(!fn||!fe||!fm){
+    msg.className='fmsg er';
+    msg.textContent='⚠ Please fill in name, email and message.';
+    return;
+  }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fe)){
+    msg.className='fmsg er';
+    msg.textContent='⚠ Please enter a valid email.';
+    return;
+  }
+
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'SENDING…';
+  btn.style.opacity = '.7';
+  msg.className = 'fmsg';
+  msg.textContent = '';
+
+  emailjs.send('service_5xc8o5j', 'template_goqtxtp', {
+    from_name:    fn,
+    from_email:   fe,
+    phone:        fp2,
+    service:      fs,
+    organization: fo,
+    message:      fm
+  })
+  .then(() => {
+    msg.className = 'fmsg ok';
+    msg.textContent = '✓ Message sent! We respond within 24 hours.';
+    showToast('✓ Message sent successfully!', 'ok');
+    ['fn','fe','fp2','fs','fo','fm'].forEach(id => document.getElementById(id).value = '');
+  })
+  .catch(err => {
+    console.error('EmailJS error:', err);
+    msg.className = 'fmsg er';
+    msg.textContent = '⚠ Failed to send. Please try again.';
+    showToast('⚠ Failed to send message. Please try again.', 'err');
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.textContent = originalText;
+    btn.style.opacity = '1';
+  });
 }
 
 /* ═══ MAIN SITE INIT ═══ */
