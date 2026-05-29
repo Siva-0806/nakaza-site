@@ -537,3 +537,110 @@ footer{background:var(--c1);padding:28px 5vw;border-top:1px solid var(--bdr2);}
 /* ── remove custom cursor ── */
 #cur,#cur2{display:none !important;}
 body.hov #cur{display:none !important;}
+
+/* ═══════════════════════════════════════════
+   FULL RESPONSIVE — ALL DEVICES
+═══════════════════════════════════════════ */
+
+/* ── Tablet landscape (≤1024px) ── */
+@media(max-width:1024px){
+  .sec{padding:80px 5vw;}
+  .hcontent{padding:80px 5vw 0;}
+  .hero-flex{flex-direction:column;gap:32px;padding-right:0;}
+  .founder-img-wrap{display:none;}
+  .ag{grid-template-columns:1fr;gap:40px;}
+  .egrid{grid-template-columns:1fr 1fr;}
+  .cwrap{grid-template-columns:1fr;gap:40px;}
+  .vtl{max-width:100%;}
+  .foot{flex-direction:column;align-items:flex-start;gap:12px;}
+  .sband{grid-template-columns:1fr 1fr;}
+  .scell{border-right:none;border-bottom:1px solid var(--bdr2);}
+  .scell:last-child{border-bottom:none;}
+}
+
+/* ── Tablet portrait (≤768px) ── */
+@media(max-width:768px){
+  html{font-size:15px;}
+  .sec{padding:60px 5vw;}
+  .hcontent{padding:72px 5vw 0;}
+  .htl{font-size:clamp(1rem,5vw,2.2rem);white-space:normal;}
+  .sh{font-size:clamp(1.8rem,6vw,3.2rem);}
+  .heyebrow{font-size:.56rem;}
+  .hbtns{flex-direction:column;gap:10px;}
+  .hbtns .btn{width:100%;justify-content:center;}
+  .egrid{grid-template-columns:1fr 1fr;}
+  .agrid{grid-template-columns:1fr;}
+  .frow{grid-template-columns:1fr;}
+  .fbox{padding:24px 16px;}
+  .cleft h3{font-size:1.8rem;}
+  .ach-img-card{width:240px;height:175px;}
+  .tcard{width:220px;}
+  .vtl{padding-left:0;}
+  .vti{flex-direction:column;gap:8px;padding-left:36px;}
+  .vti-yr{width:auto;}
+  .snum{font-size:2.8rem;}
+  .chips{gap:6px;}
+  .chip{font-size:.5rem;padding:4px 8px;}
+  .eicon img{width:60px;height:60px;}
+  .cico{width:36px;height:36px;}
+}
+
+/* ── Mobile (≤640px) ── */
+@media(max-width:640px){
+  html{font-size:14px;}
+  .sec{padding:48px 4vw;}
+  .hcontent{padding:64px 4vw 0;}
+  .htl{font-size:clamp(.9rem,4.5vw,2rem);white-space:normal;}
+  .sh{font-size:clamp(1.6rem,7vw,2.8rem);}
+  .egrid{grid-template-columns:1fr;}
+  .agrid{grid-template-columns:1fr;}
+  .sband{grid-template-columns:1fr 1fr;}
+  .pgrid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));}
+  .ach-img-card{width:200px;height:150px;}
+  .tcard{width:200px;}
+  .bodytxt{font-size:.88rem;}
+  .quote-block p{font-size:.9rem;}
+  .ecard{padding:24px 18px;}
+  .eicon img{width:52px;height:52px;}
+  .fbox{padding:20px 14px;}
+  .cleft h3{font-size:1.5rem;}
+  .foot-copy{font-size:.5rem;}
+  .foot-links{flex-wrap:wrap;gap:10px;}
+  .ldr-name{font-size:clamp(1.4rem,7vw,2.5rem);}
+}
+
+/* ── Small phones (≤390px) ── */
+@media(max-width:390px){
+  html{font-size:13px;}
+  .sec{padding:40px 4vw;}
+  .htl{font-size:clamp(.85rem,4vw,1.6rem);}
+  .sh{font-size:clamp(1.4rem,8vw,2.2rem);}
+  .btn{padding:11px 18px;font-size:.8rem;}
+  .snum{font-size:2.2rem;}
+  .ach-img-card{width:170px;height:130px;}
+  .ecard{padding:20px 14px;}
+  .chips{gap:5px;}
+  .chip{font-size:.48rem;}
+}
+
+/* ── iOS Safari safe area ── */
+@supports(padding:max(0px)){
+  #nav{padding-left:max(5vw,env(safe-area-inset-left));padding-right:max(5vw,env(safe-area-inset-right));}
+  .hcontent{padding-left:max(5vw,env(safe-area-inset-left));padding-right:max(5vw,env(safe-area-inset-right));}
+  .sec{padding-left:max(5vw,env(safe-area-inset-left));padding-right:max(5vw,env(safe-area-inset-right));}
+  footer{padding-left:max(5vw,env(safe-area-inset-left));padding-right:max(5vw,env(safe-area-inset-right));padding-bottom:max(28px,env(safe-area-inset-bottom));}
+}
+
+/* ── Touch devices ── */
+@media(hover:none){
+  .ecard:hover{background:var(--c2);}
+  .acard:hover{transform:none;box-shadow:none;}
+  .tcard:hover{transform:none;box-shadow:none;}
+  .btn-g:hover{transform:none;box-shadow:none;}
+  .ach-img-card:hover{transform:perspective(900px) rotateY(-8deg) rotateX(4deg) !important;z-index:1 !important;}
+}
+
+/* ── Retina / HiDPI ── */
+@media(-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){
+  .eicon img,.cico img{image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;}
+}

@@ -715,3 +715,126 @@ footer{
   .frow{grid-template-columns:1fr;}
   .hero-title{font-size:clamp(2.8rem,12vw,5rem);}
 }
+
+/* ═══════════════════════════════════════════
+   FULL RESPONSIVE — ALL DEVICES
+═══════════════════════════════════════════ */
+
+/* ── Tablet landscape / small desktop (≤1024px) ── */
+@media(max-width:1024px){
+  .sec{padding:80px 5vw;}
+  #founder{padding-top:80px;padding-bottom:80px;}
+  .hero-content{padding:80px 5vw 80px;}
+  .hero-corner-stats{display:none;}
+  .contact-wrap{grid-template-columns:1fr;gap:48px;}
+  .founder-wrap{grid-template-columns:1fr;gap:48px;}
+  #about .sec-inner{grid-template-columns:1fr;gap:48px;}
+  .vm-grid{grid-template-columns:1fr;}
+  .svc-grid{grid-template-columns:1fr 1fr;}
+  .stats-inner{grid-template-columns:1fr 1fr;}
+  .ach-list{grid-template-columns:1fr;}
+  nav ul{display:none;}
+  .foot{flex-direction:column;align-items:flex-start;gap:12px;}
+}
+
+/* ── Tablet portrait (≤768px) ── */
+@media(max-width:768px){
+  html{font-size:15px;}
+  .sec{padding:64px 5vw;}
+  #hero{min-height:600px;}
+  .hero-content{padding:80px 5vw 60px;}
+  .hero-title{font-size:clamp(2.4rem,10vw,5rem);}
+  .hero-sub{font-size:.95rem;}
+  .hero-btns{flex-direction:column;gap:12px;}
+  .hero-btns .btn{width:100%;justify-content:center;}
+  .sh{font-size:clamp(2rem,7vw,3.5rem);}
+  .pillars{grid-template-columns:1fr 1fr;}
+  .svc-grid{grid-template-columns:1fr 1fr;}
+  .stats-inner{grid-template-columns:1fr 1fr;}
+  .vm-card{padding:40px 28px;}
+  .vm-card h3{font-size:1.8rem;}
+  .form-box{padding:28px 20px;}
+  .frow{grid-template-columns:1fr;}
+  .contact-left h3{font-size:2rem;}
+  .stat-num{font-size:3rem;}
+  .pillar-icon{width:64px;height:64px;}
+  .svc-icon{width:64px;height:64px;}
+  .vm-icon{width:72px;height:72px;}
+  .c-ico{width:40px;height:40px;}
+  .foot-copy{font-size:.55rem;}
+  .foot-links{gap:16px;}
+}
+
+/* ── Mobile landscape + large phones (≤640px) ── */
+@media(max-width:640px){
+  html{font-size:14px;}
+  .sec{padding:56px 4vw;}
+  #hero{min-height:100svh;}
+  .hero-content{padding:72px 4vw 48px;}
+  .hero-title{font-size:clamp(2rem,11vw,4rem);line-height:1;}
+  .hero-eyebrow{font-size:.6rem;}
+  .hero-sub{font-size:.88rem;max-width:100%;}
+  .sh{font-size:clamp(1.8rem,8vw,3rem);}
+  .pillars{grid-template-columns:1fr;}
+  .svc-grid{grid-template-columns:1fr;}
+  .stats-inner{grid-template-columns:1fr 1fr;}
+  .frow{grid-template-columns:1fr;}
+  .vm-card{padding:32px 20px;}
+  .vm-card h3{font-size:1.6rem;}
+  .proj-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));}
+  .ticker-item{font-size:.8rem;padding:0 24px;}
+  .contact-left h3{font-size:1.7rem;}
+  .form-box{padding:24px 16px;}
+  .stat-num{font-size:2.6rem;}
+  .stat-label{font-size:.55rem;}
+  .stats-band{padding:40px 4vw;}
+  .foot{flex-direction:column;align-items:flex-start;}
+  .foot-links{flex-wrap:wrap;gap:12px;}
+  .f-name{font-size:1.2rem;}
+  .fcard-header{padding:28px 20px 24px;}
+  .fcard-body{padding:20px;}
+  .ach-list{grid-template-columns:1fr;}
+  .c-rows{gap:12px;}
+  .c-row-label{font-size:.52rem;}
+  .c-row a{font-size:.78rem;}
+}
+
+/* ── Small phones (≤390px — iPhone SE, Galaxy A series) ── */
+@media(max-width:390px){
+  html{font-size:13px;}
+  .hero-title{font-size:clamp(1.8rem,12vw,3.2rem);}
+  .sh{font-size:clamp(1.6rem,9vw,2.6rem);}
+  .sec{padding:48px 4vw;}
+  .btn{padding:12px 20px;font-size:.82rem;}
+  .stats-inner{grid-template-columns:1fr 1fr;}
+  .stat-num{font-size:2.2rem;}
+  .vm-card{padding:28px 16px;}
+  .svc-card{padding:28px 20px;}
+  .form-box{padding:20px 14px;}
+  .pillar{padding:16px;}
+  .pillar-icon{width:52px;height:52px;}
+  .svc-icon{width:52px;height:52px;}
+  .ticker-item{font-size:.72rem;padding:0 16px;}
+}
+
+/* ── iOS Safari safe area support ── */
+@supports(padding:max(0px)){
+  #nav{padding-left:max(5vw,env(safe-area-inset-left));padding-right:max(5vw,env(safe-area-inset-right));}
+  .hero-content{padding-left:max(5vw,env(safe-area-inset-left));padding-right:max(5vw,env(safe-area-inset-right));}
+  .sec{padding-left:max(5vw,env(safe-area-inset-left));padding-right:max(5vw,env(safe-area-inset-right));}
+  footer{padding-left:max(5vw,env(safe-area-inset-left));padding-right:max(5vw,env(safe-area-inset-right));padding-bottom:max(32px,env(safe-area-inset-bottom));}
+}
+
+/* ── Touch devices — remove hover effects that break on tap ── */
+@media(hover:none){
+  .pillar:hover{transform:none;}
+  .btn-gold:hover{transform:none;box-shadow:none;}
+  .ptile:hover{transform:none;}
+  .svc-card:hover{background:var(--c1);}
+  .vm-card:hover{background:var(--c2);}
+}
+
+/* ── High DPI / Retina screens ── */
+@media(-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){
+  .pillar-icon img,.svc-icon img,.vm-icon img,.c-ico img{image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;}
+}
