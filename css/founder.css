@@ -55,6 +55,18 @@ body.hov #cur{width:22px;height:22px;}
   border-bottom:1px solid transparent;transition:background .5s,border-color .5s;}
 #nav.stuck{background:rgba(4,6,13,.92);backdrop-filter:blur(28px) saturate(200%);border-color:var(--bdr2);}
 .nl{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo-img{
+  width:40px;
+  height:40px;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+  flex-shrink:0;
+  image-rendering:-webkit-optimize-contrast;
+  image-rendering:crisp-edges;
+}
+@media(max-width:768px){.nav-logo-img{width:32px;height:32px;}}
+@media(max-width:390px){.nav-logo-img{width:26px;height:26px;}}
 .nl-hex{width:36px;height:36px;
   background:linear-gradient(135deg,var(--gold),var(--gold2));
   clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
