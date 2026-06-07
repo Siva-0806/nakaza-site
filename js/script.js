@@ -464,28 +464,77 @@ function fp(f,btn){
   gsap.from('.ptile',{y:20,opacity:0,duration:.4,stagger:.03,ease:'power2.out'});
 }
 /* ═══════════════════════════════════════════
-   CONTACT FORM — mailto
+   EMAILJS CONFIG
+═══════════════════════════════════════════ */
+const EMAILJS_PUBLIC_KEY = 'HiJXFyKf7Z-ybuZRD';
+const EMAILJS_SERVICE_ID = 'service_ffrlng8';
+const EMAILJS_TEMPLATE_ID = 'template_x0of7w6';
+
+(function initEmailJS(){
+  if(typeof emailjs !== 'undefined'){
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  } else {
+    window.addEventListener('load', () => emailjs.init(EMAILJS_PUBLIC_KEY));
+  }
+})();
+
+/* ═══════════════════════════════════════════
+   CONTACT FORM — EmailJS
 ═══════════════════════════════════════════ */
 function doSend(){
-  const fn=document.getElementById('fn').value.trim();
-  const fe=document.getElementById('fe').value.trim();
-  const fp2=document.getElementById('fp2').value.trim();
-  const fs=document.getElementById('fs').value;
-  const fo=document.getElementById('fo').value.trim();
-  const fm=document.getElementById('fm').value.trim();
-  const msg=document.getElementById('fmsg');
-  const btn=document.getElementById('sbtn');
-  if(!fn||!fe||!fm){msg.className='f-msg er';msg.textContent='⚠  Please fill in your name, email and message.';return;}
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fe)){msg.className='f-msg er';msg.textContent='⚠  Please enter a valid email address.';return;}
-  btn.disabled=true;btn.textContent='OPENING YOUR EMAIL CLIENT…';
-  const sub=encodeURIComponent(`Nakaza Automations — ${fs||'General Enquiry'} — ${fn}`);
-  const body=encodeURIComponent(`Name: ${fn}\nEmail: ${fe}\nPhone: ${fp2}\nOrganization: ${fo}\nService: ${fs}\n\nMessage:\n${fm}`);
-  window.location.href=`mailto:nakazaautomations@gmail.com?subject=${sub}&body=${body}`;
-  setTimeout(()=>{
-    msg.className='f-msg ok';
-    msg.textContent='✓  Your email client has opened with the message pre-filled. Hit Send — we respond within 24 hours!';
-    btn.disabled=false;btn.textContent='SEND MESSAGE';
-  },1600);
+  const fn  = document.getElementById('fn').value.trim();
+  const fe  = document.getElementById('fe').value.trim();
+  const fp2 = document.getElementById('fp2').value.trim();
+  const fs  = document.getElementById('fs').value;
+  const fo  = document.getElementById('fo').value.trim();
+  const fm  = document.getElementById('fm').value.trim();
+  const msg = document.getElementById('fmsg');
+  const btn = document.getElementById('sbtn');
+
+  if(!fn||!fe||!fm){
+    msg.className='f-msg er';
+    msg.textContent='⚠  Please fill in your name, email and message.';
+    return;
+  }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fe)){
+    msg.className='f-msg er';
+    msg.textContent='⚠  Please enter a valid email address.';
+    return;
+  }
+
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'SENDING…';
+  btn.style.opacity = '.7';
+  msg.className = 'f-msg';
+  msg.textContent = '';
+
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+    from_name:    fn,
+    from_email:   fe,
+    phone:        fp2 || '',
+    service:      fs  || '',
+    organization: fo  || '',
+    message:      fm
+  })
+  .then(() => {
+    msg.className = 'f-msg ok';
+    msg.textContent = '✓  Message sent! We’ll respond within 24 hours.';
+    ['fn','fe','fp2','fs','fo','fm'].forEach(id => {
+      const el = document.getElementById(id);
+      if(el) el.value = '';
+    });
+  })
+  .catch(err => {
+    console.error('EmailJS error:', err);
+    msg.className = 'f-msg er';
+    msg.textContent = '⚠  Failed to send. Please try again or email us directly.';
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.textContent = originalText;
+    btn.style.opacity = '1';
+  });
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
